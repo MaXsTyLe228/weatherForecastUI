@@ -1,8 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import {createStore, applyMiddleware, combineReducers} from "redux";
+import {weatherReducer} from "./weatherReduser";
+import {composeWithDevTools} from "redux-devtools-extension";
+import thunk from "redux-thunk";
 
-export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
-});
+const rootReducer = combineReducers({
+    weather: weatherReducer,
+})
+
+export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
