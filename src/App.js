@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';
 import CityInput from "./components/CityInput";
 import WeatherChart from "./components/WeatherChart";
+import styles from "./styles/styles.module.css"
 
 function App() {
     return (
-        <div className="App">
+        <div className={styles.App}>
             <CityInput/>
             <WeatherChart/>
         </div>

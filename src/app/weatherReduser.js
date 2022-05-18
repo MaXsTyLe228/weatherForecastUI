@@ -7,7 +7,11 @@ const SEARCH = "SEARCH"
 export const weatherReducer = (state = defaultState, action) => {
     switch (action.type) {
         case SEARCH:
-            return {...state, weather: [...action.payload]}
+            try {
+                return {weather: [...action.payload]}
+            } catch (e) {
+                return {error: [action.payload]}
+            }
         default:
             return state
     }
